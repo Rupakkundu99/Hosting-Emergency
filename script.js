@@ -166,6 +166,29 @@ if ('loading' in HTMLImageElement.prototype) {
 }
 
 // ===================================
+// Publishing Popup Logic
+// ===================================
+window.addEventListener('load', () => {
+    const popup = document.getElementById('publishingPopup');
+    const closeBtn = document.getElementById('closePopup');
+
+    // Show popup on load
+    popup.style.display = 'flex';
+
+    // Close popup when button is clicked
+    closeBtn.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+
+    // Close popup if clicking outside the content box
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+});
+
+// ===================================
 // Console Easter Egg
 // ===================================
 console.log('%c🧠 SnapMind', 'color: #8b5cf6; font-size: 24px; font-weight: bold;');
